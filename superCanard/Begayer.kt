@@ -1,9 +1,8 @@
 package be.technifutur.decouvertekotlin.designPattern.superCanard
 
-class Begayer:ComportementCancan, Cancan() {
+class Begayer(var comportementCancan: ComportementCancan): ComportementCancan {
 
     override fun cancaner(): String {
-        val cri = Cancan()
-        return cri.cancaner() + cri.cancaner()
+        return "${comportementCancan.cancaner()} ${comportementCancan.cancaner()}"
     }
 }
