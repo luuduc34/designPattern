@@ -10,11 +10,11 @@ return "Plouf Plouf"
 
     }
 
-    fun effectuerCancan() {
+    fun effectuerCancan():String {
         return comportementCancan.cancaner()
     }
 
-    fun effectuerVol(){
+    fun effectuerVol():String {
         return comportementVol.voler()
     }
 
