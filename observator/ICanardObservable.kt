@@ -1,8 +1,7 @@
-package be.technifutur.decouvertekotlin.designPattern.defis2
+package be.technifutur.decouvertekotlin.designPattern.observator
 
 import be.technifutur.decouvertekotlin.designPattern.strategie.Colvert
 import be.technifutur.decouvertekotlin.designPattern.strategie.ICanard
-import be.technifutur.decouvertekotlin.designPattern.strategie.Mandarin
 
 interface ICanardObservable : ICanard {
     fun addObserver(observer: ICanardObserver)
@@ -29,8 +28,18 @@ class CanardObserver() : ICanardObserver {
     }
 }
 
+class ObserverBug() : ICanardObserver {
+    override fun CanardCancanne(canard: ICanard) {
+        println(canard.effectuerCancan())
+    }
+
+    override fun CanardVol(canard: ICanard) {
+        println(canard.effectuerVol())
+    }
+}
 class CanardObservable(val canardDeBase: ICanard) : ICanardObservable {
-    val setObserver = mutableSetOf<ICanardObserver>()
+    private val setObserver = mutableSetOf<ICanardObserver>()
+    private var propage = false
     override fun addObserver(observer: ICanardObserver) {
         setObserver.add(observer)
     }
@@ -48,18 +57,25 @@ class CanardObservable(val canardDeBase: ICanard) : ICanardObservable {
     }
 
     override fun effectuerVol(): String {
-
         val vol = canardDeBase.effectuerVol()
-        setObserver.forEach {
-            it.CanardVol(this)
+        if (!propage){
+            propage = true
+            setObserver.forEach {
+                it.CanardVol(this)
+            }
+            propage = false
         }
         return vol
     }
 
     override fun effectuerCancan(): String {
         val cancan = canardDeBase.effectuerCancan()
-        setObserver.forEach {
-            it.CanardCancanne(this)
+        if (!propage){
+            propage = true
+            setObserver.forEach {
+                it.CanardCancanne(this)
+            }
+            propage = false
         }
         return cancan
     }
@@ -68,8 +84,9 @@ class CanardObservable(val canardDeBase: ICanard) : ICanardObservable {
 fun main() {
     val canard = createCanardObservable(Colvert())
     val Toto = CanardObserver()
+    val dédé = ObserverBug()
     canard.addObserver(Toto)
-    canard.effectuerVol()
-    canard.effectuerCancan()
-
+    canard.addObserver(dédé)
+    println(canard.effectuerVol())
+    println(canard.effectuerCancan())
 }

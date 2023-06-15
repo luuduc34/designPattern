@@ -1,4 +1,4 @@
-package be.technifutur.decouvertekotlin.designPattern
+package be.technifutur.decouvertekotlin.designPattern.composition
 
 class Heritage {
 
