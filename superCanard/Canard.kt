@@ -1,20 +1,27 @@
 package be.technifutur.decouvertekotlin.designPattern.superCanard
 
-abstract class Canard(var comportementCancan: ComportementCancan, var comportementVol: ComportementVol) {
+interface ICanard {
+    fun afficher(): Unit
+    fun nager(): String
+    fun effectuerVol() : String
+    fun effectuerCancan() : String
+}
+abstract class Canard(var comportementCancan: ComportementCancan, var comportementVol: ComportementVol) : ICanard {
 
 
-    fun nager(): String {
-return "Plouf Plouf"
+    override fun nager(): String {
+        return "Plouf Plouf"
     }
-    open fun afficher(){
+
+    override fun afficher() {
 
     }
 
-    fun effectuerCancan():String {
+    override fun effectuerCancan(): String {
         return comportementCancan.cancaner()
     }
 
-    fun effectuerVol():String {
+    override fun effectuerVol(): String {
         return comportementVol.voler()
     }
 
