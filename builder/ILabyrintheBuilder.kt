@@ -57,8 +57,8 @@ fun main() {
         }
         builder.stop()
 
-        //val labyrinthe = builder.labyrinthe
+        val labyrinthe = builder.labyrinthe
 
-        //println(labyrinthe)
+        println(labyrinthe)
     }
 }

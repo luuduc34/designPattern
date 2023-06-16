@@ -18,6 +18,10 @@ class Position2D(val line:Int, val column : Int): IPosition {
         result = 31 * result + column
         return result
     }
+
+    override fun toString(): String {
+        return "\n Position2D(line=$line, column=$column)"
+    }
 }
 interface IPosition{
 
