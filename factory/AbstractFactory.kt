@@ -11,7 +11,7 @@ interface IPorte : IElementLabyrinthe {
 }
 
 interface IPiece : IElementLabyrinthe {
-    val objectSet: MutableSet<IElementLabyrinthe>
+    var objectSet: MutableSet<IElementLabyrinthe>
 }
 
 interface IMur : IElementLabyrinthe {
