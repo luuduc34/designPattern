@@ -1,4 +1,4 @@
-package be.technifutur.decouvertekotlin.designPattern.Factory
+package be.technifutur.decouvertekotlin.designPattern.factory
 
 interface IAbstractFactory {
     fun createMur():IMur
@@ -22,7 +22,7 @@ interface IElementLabyrinthe{
 fun getFactory(type:String): IAbstractFactory?{
     return when(type){
         "Chateau" -> ChateauFactory()
-       // "Jardin" -> JardinFactory()
+       "Jardin" -> JardinFactory()
         else -> null
     }
 }
