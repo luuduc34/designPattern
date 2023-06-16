@@ -16,15 +16,15 @@ class ChateauFactory : IAbstractFactory {
 
 class MurChateau : IMur {
     override var decoration: String = "Mur sans décoration"
-    override val decription: String = "Mur de chateau"
+    override val description: String = "Mur de chateau"
 }
 
 class PieceChateau : IPiece {
-    override val objectSet: MutableSet<IElementLabyrinthe> = mutableSetOf()
-    override val decription: String = "Piece de chateau"
+    override var objectSet: MutableSet<IElementLabyrinthe> = mutableSetOf()
+    override val description: String = "Piece de chateau"
 }
 
 class PorteChateau : IPorte {
     override var open: Boolean = false
-    override val decription: String = "Porte de chateau"
+    override val description: String = "Porte de chateau"
 }

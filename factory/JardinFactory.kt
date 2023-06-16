@@ -16,15 +16,15 @@ class JardinFactory : IAbstractFactory {
 
 class MurJardin : IMur {
     override var decoration: String = "Mur sans décoration"
-    override val decription: String = "Mur de jardin"
+    override val description: String = "Mur de jardin"
 }
 
 class PieceJardin : IPiece {
-    override val objectSet: MutableSet<IElementLabyrinthe> = mutableSetOf()
-    override val decription: String = "Piece de jardin"
+    override var objectSet: MutableSet<IElementLabyrinthe> = mutableSetOf()
+    override val description: String = "Piece de jardin"
 }
 
 class PorteJardin : IPorte {
     override var open: Boolean = false
-    override val decription: String = "Porte de jardin"
+    override val description: String = "Porte de jardin"
 }
