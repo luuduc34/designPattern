@@ -1,6 +1,6 @@
 package be.technifutur.decouvertekotlin.designPattern.builder
 
-class Position2D(val line:Int, val column : Int) {
+class Position2D(val line:Int, val column : Int): IPosition {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
@@ -18,4 +18,7 @@ class Position2D(val line:Int, val column : Int) {
         result = 31 * result + column
         return result
     }
+}
+interface IPosition{
+
 }
